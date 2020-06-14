@@ -22,8 +22,8 @@ def rest_insta():
 	return json.dumps(this_rest, indent=4)
 
 @app.route('/sifatnama',methods=['POST','GET'])
-def rest_insta():
+def rest_sifat():
 	this_user = request.args['name']
-	this_rest = scrap.instaprofile(this_user)
+	this_rest = scrap.sifatnama(this_name)
 	return json.dumps(this_rest, indent=4)
 	
