@@ -1,4 +1,4 @@
-import requests, re, json , random , urllib , html5lib
+import requests, re, json , random
 from re import match
 from bs4 import BeautifulSoup, SoupStrainer
 _session = requests.session()
