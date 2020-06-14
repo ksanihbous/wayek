@@ -2,7 +2,7 @@ from app import app, scrap
 from flask import render_template, send_file ,flash, url_for
 from flask import request
 from app.forms import LoginForm
-import requests, re, json , random
+import requests, re, json , random , urllib
 from bs4 import BeautifulSoup, SoupStrainer
 _session = requests.session()
 
@@ -30,7 +30,12 @@ def rest_sifat():
 	return json.dumps(this_rest, indent=4)
 
 @app.route('/cctv',methods=['POST','GET'])
-def rest_cctvs():
+def rest_cctv():
 	this_code = request.args['code']
 	this_rest = scrap.cctv(this_code)
+	return json.dumps(this_rest, indent=4)
+
+@app.route('/bmkg',methods=['POST','GET'])
+def rest_bmkgs():
+	this_rest = scrap.bmkg()
 	return json.dumps(this_rest, indent=4)
