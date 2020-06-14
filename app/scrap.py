@@ -1,7 +1,6 @@
 import requests, re, json , random , urllib
 from re import match
 from bs4 import BeautifulSoup, SoupStrainer
-_session = requests.session()
 
 def getStr(string,start,end, index = 1):
     str = string.split(start)
@@ -61,11 +60,11 @@ def bmkg():
     }
     return(result)
 
-def cctv(code):
+def cctv(kode):
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
     }
-    uye = "http://lewatmana.com/cam/{}/bundaran-hi/".format(str(code))
+    uye = "http://lewatmana.com/cam/{}/bundaran-hi/".format(str(kode))
     r = requests.get(uye, headers=headers)
     soup = BeautifulSoup(r.content, 'html5lib')
     soup2 = BeautifulSoup(r.content, 'lxml', parse_only=SoupStrainer('div', {'class':'panel-body'}))
