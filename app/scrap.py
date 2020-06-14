@@ -11,9 +11,10 @@ def img(query):
 		if 'textinput' not in clu['src']:
 			imagedata.append(clu['src'])
 	result = {
-		'status':'OK',
+		'status':'200',
 		'result':imagedata
-		}
+		},
+	        'creator':'Asa Xyz'
 	return(result)
 	
 def instaprofile(user):
