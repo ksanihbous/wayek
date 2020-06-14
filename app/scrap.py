@@ -198,18 +198,27 @@ def twitterprofile(user):
     following = data["result"]["following"]
     tweet = data["result"]["tweet"]
     like = data["result"]["like"]
-    result = {
-        "status":"200",
-        "creator":"Asa Xyz",
-        "result": {
-            "username": username,
-            "fullname": name,
-            "profile_img": picture,
-            "bio": biography,
-            "followers": followers,
-            "following": following,
-            "tweets": tweet,
-            "liked": like
+    url = data["result"]["url"]
+    try:
+        result = {
+            "status":"200",
+            "creator":"Asa Xyz",
+            "result": {
+                "username": usernames,
+                "fullname": name,
+                "profile_img": picture,
+                "bio": biography,
+                "url":url,
+                "followers": followers,
+                "following": following,
+                "tweet": tweet,
+                "like": like
+            }
         }
-    }
-    return(result)
+        return(result)
+    except:
+        result = {
+            "status":"404",
+            "creator":"Asa Xyz",
+        }
+        return(result)
