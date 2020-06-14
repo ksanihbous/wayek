@@ -12,9 +12,10 @@ def img(query):
 			imagedata.append(clu['src'])
 	result = {
 		'status':'200',
-		'result':imagedata
+		'result':imagedata,
 		},
 	        'creator':'Asa Xyz'
+		}
 	return(result)
 	
 def instaprofile(user):
