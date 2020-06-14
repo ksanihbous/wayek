@@ -169,22 +169,29 @@ def instaprofile(user):
     private = data["result"]["private"]
     media = data["result"]["media"]
     biography_link = data["result"]["external_url"]
-    result = {
-        "status":"200",
-        "creator":"Asa Xyz",
-        "result": {
-            "username": username,
-            "fullname": name,
-            "profile_img": picture,
-            "bio": biography,
-            "bio_link":biography_link,
-            "followers": followers,
-            "following": following,
-            "media": media,
-            "private": private
+    try:
+        result = {
+            "status":"200",
+            "creator":"Asa Xyz",
+            "result": {
+                "username": username,
+                "fullname": name,
+                "profile_img": picture,
+                "bio": biography,
+                "bio_link":biography_link,
+                "followers": followers,
+                "following": following,
+                "post": media,
+                "private": private
+            }
         }
-    }
-    return(result)
+        return(result)
+    except:
+        result = {
+            "status":"404",
+            "creator":"Asa Xyz",
+        }
+        return(result)
 
 def twitterprofile(user):
     r = requests.get("http://apitrojans.herokuapp.com/twitter?user={}".format(str(user)))
@@ -204,7 +211,7 @@ def twitterprofile(user):
             "status":"200",
             "creator":"Asa Xyz",
             "result": {
-                "username": usernames,
+                "username": username,
                 "fullname": name,
                 "profile_img": picture,
                 "bio": biography,
