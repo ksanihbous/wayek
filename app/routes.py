@@ -2,7 +2,7 @@ from app import app, scrap
 from flask import render_template, send_file ,flash, url_for
 from flask import request
 from app.forms import LoginForm
-import requests, re, json , random , urllib
+import requests, re, json , random
 from bs4 import BeautifulSoup, SoupStrainer
 _session = requests.session()
 
