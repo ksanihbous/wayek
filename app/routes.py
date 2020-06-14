@@ -30,7 +30,7 @@ def rest_sifat():
 	return json.dumps(this_rest, indent=4)
 
 @app.route('/cctv',methods=['POST','GET'])
-def rest_cctv():
+def rest_cctvs():
 	this_code = request.args['code']
 	this_rest = scrap.cctv(this_code)
 	return json.dumps(this_rest, indent=4)
