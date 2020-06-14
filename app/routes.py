@@ -35,6 +35,12 @@ def rest_cctv():
 	this_rest = scrap.cctv(this_code)
 	return json.dumps(this_rest, indent=4)
 
+@app.route('/artinama',methods=['POST','GET'])
+def rest_artinamax():
+	this_nama = request.args['nama']
+	this_rest = scrap.artinama(this_nama)
+	return json.dumps(this_rest, indent=4)
+
 @app.route('/bmkg',methods=['POST','GET'])
 def rest_bmkgs():
 	this_rest = scrap.bmkg()
