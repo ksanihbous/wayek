@@ -144,6 +144,18 @@ def sifatnama(name):
     }
     return(result)
 
+def quotes():
+    r = requests.get("http://apitrojans.herokuapp.com/quotes")
+    data=r.text
+    data=json.loads(data)
+    quotes = data["result"]["quotes"]
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": quotes
+    }
+    return(result)
+
 def instaprofile(user):
     r = requests.get("http://apitrojans.herokuapp.com/instagram/user?username={}".format(str(user)))
     data=r.text
