@@ -35,7 +35,7 @@ def rest_cctv():
 	this_rest = scrap.cctv(this_code)
 	return json.dumps(this_rest, indent=4)
 
-@app.route('/bmkg',methods=['POST','GET'])
+@app.route('/bmkg',methods=['GET'])
 def rest_bmkgs():
 	this_rest = scrap.bmkg()
 	return json.dumps(this_rest, indent=4)
