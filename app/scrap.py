@@ -47,6 +47,8 @@ def bmkg():
     diras = ["Gempabumi dirasakan","Gempabumi Tidak dirasakan"]
     dirasakan = random.choice(diras)
     result = {
+        "status":"200",
+        "creator":"Asa Xyz",
         "result": {
             "lokasi": lokasi,
             "waktu": waktu,
@@ -56,6 +58,31 @@ def bmkg():
             "subjek": dirasakan,
             "img": img,
             "himbauan": himbauan
+        }
+    }
+    return(result)
+
+def artinama(nama):
+    dsa ="http://primbon.com/arti_nama.php?nama1={}&proses=+Submit%21+".format(nama)
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'id,en-US;q=0.7,en;q=0.3',
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'Pragma': 'no-cache',
+    'Cache-Control': 'no-cache',
+    'TE': 'Trailers',
+    }
+    response = requests.get(dsa, headers=headers).text
+    anu = getStr(response, '<b>ARTI NAMA</b><br><br>', '<TABLE>')
+    st=str(anu).replace("<b><i>",": ").replace("</i></b>","").replace("<br><br>","").replace(".<br><br>","").replace("memiliki arti:","\nArti :")
+    ret = "%s"%(st)
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "arti_nama": ret
         }
     }
     return(result)
