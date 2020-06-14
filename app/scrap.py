@@ -152,7 +152,7 @@ def quotes():
     result = {
         "status":"200",
         "creator":"Asa Xyz",
-        "result": quotes
+        "quotes": quotes
     }
     return(result)
 
@@ -182,6 +182,34 @@ def instaprofile(user):
             "following": following,
             "media": media,
             "private": private
+        }
+    }
+    return(result)
+
+def twitterprofile(user):
+    r = requests.get("http://apitrojans.herokuapp.com/twitter?user={}".format(str(user)))
+    data=r.text
+    data=json.loads(data)
+    username = data["result"]["id"]
+    name = data["result"]["nama"]
+    picture = data["result"]["picture"]
+    biography = data["result"]["bio"]
+    followers = data["result"]["followers"]
+    following = data["result"]["following"]
+    tweet = data["result"]["tweet"]
+    like = data["result"]["like"]
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "username": username,
+            "fullname": name,
+            "profile_img": picture,
+            "bio": biography,
+            "followers": followers,
+            "following": following,
+            "tweets": tweet,
+            "liked": like
         }
     }
     return(result)
