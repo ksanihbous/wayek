@@ -12,7 +12,7 @@ def img(query):
 			imagedata.append(clu['src'])
 	result = {
 		'status':'200',
-		'creator':'Asa Xyz'
+		'creator':'Asa Xyz',
 		'result':imagedata
 		}
 	return(result)
