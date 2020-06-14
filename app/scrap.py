@@ -21,7 +21,7 @@ def img(query):
 def cctv(code):
     with requests.session() as s:
         s.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
-        r = s.get("http://lewatmana.com/cam/{}/bundaran-hi/".format(code))
+        r = s.get("http://lewatmana.com/cam/{}/bundaran-hi/".format(str(code)))
         soup = BeautifulSoup(r.content, 'html5lib')
         soup2 = BeautifulSoup(r.content, 'lxml', parse_only=SoupStrainer('div', {'class':'panel-body'}))
         title = soup2.find('h1').get_text()
