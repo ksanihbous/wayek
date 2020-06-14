@@ -45,3 +45,8 @@ def rest_artinamax():
 def rest_bmkgs():
 	this_rest = scrap.bmkg()
 	return json.dumps(this_rest, indent=4)
+
+@app.route('/quotes',methods=['POST','GET'])
+def rest_quotess():
+	this_rest = scrap.quotes()
+	return json.dumps(this_rest, indent=4)
