@@ -41,10 +41,11 @@ def bmkg():
     kedalaman = getStr(re, '<li><span class="ic kedalaman"></span>', '</li>')
     kordinat = getStr(re, '<li><span class="ic koordinat"></span>', '</li>')
     lokasi = getStr(re, '<li><span class="ic lokasi"></span>', '</li>')
-    dirasakan = getStr(re, '<li><span class="ic dirasakan"></span>', '</li>')
     img = getStr(re, '<img class="img-responsive" src="', '"')
     himbau = ["Hati-hati terhadap gempabumi yang akan terjadi selanjutnya","Buat warga sekitar di mohon untuk tetap waspada","Waspada gempabumi susulan yang mungkin saja terjadi","Warga sekitar di mohon untuk tidak panik dan tetap memantau kondisi yang akan mungkin terjadi"]
     himbauan = random.choice(himbau)
+    diras = ["Gempabumi dirasakan","Gempabumi Tidak dirasakan"]
+    dirasakan = random.choice(diras)
     result = {
         "result": {
             "lokasi": lokasi,
@@ -52,7 +53,7 @@ def bmkg():
             "magnitude": magnitude,
             "kordinat": kordinat,
             "kedalaman": kedalaman,
-            "subjek": "Gempabumi {}".format(dirasakan),
+            "subjek": dirasakan,
             "img": img,
             "himbauan": himbauan
         }
