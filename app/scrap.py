@@ -149,7 +149,7 @@ def instaprofile(user):
     data=r.text
     data=json.loads(data)
     username = data["result"]["username"]
-    name = data["result"]["full_name"]
+    name = data["result"]["fullname"]
     picture = data["result"]["profile_img"]
     biography = data["result"]["bio"]
     followers = data["result"]["followers"]
@@ -157,6 +157,8 @@ def instaprofile(user):
     private = data["result"]["private"]
     media = data["result"]["media"]
     result = {
+        "status":"200",
+        "creator":"Asa Xyz",
         "result": {
             "username": username,
             "fullname": name,
