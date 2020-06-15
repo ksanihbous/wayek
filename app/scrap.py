@@ -1,4 +1,4 @@
-import requests, re, json , random , urllib , string
+import requests, re, json , random , urllib
 from re import match
 from bs4 import BeautifulSoup, SoupStrainer
 _session = requests.session()
@@ -167,7 +167,7 @@ def maps(city):
         "status":"200",
         "creator":"Asa Xyz",
         "result": {
-            "city": "{}".isupper().format(city),
+            "city": "{}".format(city).isupper(),
             "latitude": lat,
             "longitude": longs
         }
