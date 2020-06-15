@@ -178,7 +178,7 @@ def kbbi(arti):
     r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(city))
     data=r.text
     data=json.loads(data)
-    arti = data["result"]["arti"][0]
+    arti = data["result"][0]["arti"][0]
     result = {
         "status":"200",
         "creator":"Asa Xyz",
