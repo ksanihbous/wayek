@@ -47,6 +47,12 @@ def rest_artinamax():
 	this_rest = scrap.artinama(this_nama)
 	return json.dumps(this_rest, indent=4)
 
+@app.route('/maps',methods=['POST','GET'])
+def rest_map():
+	this_city = request.args['city']
+	this_rest = scrap.maps(this_city)
+	return json.dumps(this_rest, indent=4)
+
 @app.route('/bmkg',methods=['POST','GET'])
 def rest_bmkgs():
 	this_rest = scrap.bmkg()
