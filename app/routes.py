@@ -31,7 +31,7 @@ def rest_twitters():
 
 @app.route('/sifatnama',methods=['POST','GET'])
 def rest_sifat():
-	this_name = request.args['name']
+	this_name = request.args['nama']
 	this_rest = scrap.sifatnama(this_name)
 	return json.dumps(this_rest, indent=4)
 
@@ -52,7 +52,7 @@ def rest_bmkgs():
 	this_rest = scrap.bmkg()
 	return json.dumps(this_rest, indent=4)
 
-@app.route('/quotes',methods=['POST','GET'])
+@app.route('/kutipan',methods=['POST','GET'])
 def rest_quotess():
-	this_rest = scrap.quotes()
+	this_rest = scrap.kutipan()
 	return json.dumps(this_rest, indent=4)
