@@ -174,6 +174,20 @@ def maps(city):
     }
     return(result)
 
+def kbbi(arti):
+    r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(city))
+    data=r.text
+    data=json.loads(data)
+    arti = data["result"]["arti"][0]
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "arti_kbbi": arti
+        }
+    }
+    return(result)
+
 def instaprofile(user):
     r = requests.get("http://apitrojans.herokuapp.com/instagram/user?username={}".format(str(user)))
     data=r.text
