@@ -167,7 +167,7 @@ def maps(city):
         "status":"200",
         "creator":"Asa Xyz",
         "result": {
-            "city": "{}".title().format(city),
+            "city": "{}".isupper().format(city),
             "latitude": lat,
             "longitude": longs
         }
