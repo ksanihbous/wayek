@@ -157,6 +157,23 @@ def kutipan():
     }
     return(result)
 
+def maps(city):
+    r = requests.get("https://tpxapi.herokuapp.com/maps?kota={}".format(city))
+    data=r.text
+    data=json.loads(data)
+    lat = data["result"]["lat"]
+    longs = data["result"]["long"]
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "city": "{}".format(city),
+            "latitude": lat,
+            "longitude": longs
+        }
+    }
+    return(result)
+
 def instaprofile(user):
     r = requests.get("http://apitrojans.herokuapp.com/instagram/user?username={}".format(str(user)))
     data=r.text
@@ -206,7 +223,6 @@ def twitterprofile(user):
     following = data["result"]["following"]
     tweet = data["result"]["tweet"]
     like = data["result"]["like"]
-    url = data["result"]["url"]
     try:
         result = {
             "status":"200",
@@ -216,11 +232,10 @@ def twitterprofile(user):
                 "fullname": name,
                 "profile_img": picture,
                 "bio": biography,
-                "url":url,
                 "followers": followers,
                 "following": following,
-                "tweet": tweet,
-                "like": like
+                "tweets": tweet,
+                "liked": like
             }
         }
         return(result)
