@@ -47,6 +47,12 @@ def rest_artinamax():
 	this_rest = scrap.artinama(this_nama)
 	return json.dumps(this_rest, indent=4)
 
+@app.route('/kbbi',methods=['POST','GET'])
+def rest_kbbix():
+	this_arti = request.args['arti']
+	this_rest = scrap.kbbi(this_arti)
+	return json.dumps(this_rest, indent=4)
+
 @app.route('/maps',methods=['POST','GET'])
 def rest_map():
 	this_city = request.args['city']
