@@ -175,7 +175,7 @@ def maps(city):
     return(result)
 
 def kbbi(arti):
-    r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(city))
+    r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(arti))
     data=r.text
     data=json.loads(data)
     arti = data["result"][0]["arti"][0]
