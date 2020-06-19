@@ -226,7 +226,7 @@ def sms(no, message):
             "result": {
                 "status": "200",
                 "message": "Sukses mengirim pesan anda",
-                "nomor_tujuan": "{}".format(no)
+                "nomor_tujuan": "{}".format(no),
                 "pesan_tujuan": "{}".format(message)
             }
         }
