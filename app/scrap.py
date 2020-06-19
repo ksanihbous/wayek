@@ -225,7 +225,8 @@ def sms(no, message):
             "creator":"Asa Xyz",
             "result": {
                 "status": "200",
-                "message": "Sukses mengirim pesan"
+                "message": "Sukses mengirim pesan anda",
+                "pesan": "{}".format(message)
             }
         }
     elif "Mohon Tunggu 15 Menit Lagi Untuk Pengiriman Pesan Yang Sama" in result.text:
