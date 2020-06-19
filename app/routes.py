@@ -71,6 +71,11 @@ def rest_bmkgs():
 	this_rest = scrap.bmkg()
 	return json.dumps(this_rest, indent=4)
 
+@app.route('/linetodaytopheadline',methods=['POST','GET'])
+def rest_linetodays():
+	this_rest = scrap.linetodayheadline()
+	return json.dumps(this_rest, indent=4)
+
 @app.route('/kutipan',methods=['POST','GET'])
 def rest_quotess():
 	this_rest = scrap.kutipan()
