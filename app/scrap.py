@@ -166,14 +166,14 @@ def linetodayheadline():
         result = {
             "status":"200",
             "creator":"Asa Xyz",
-            "result": [{
+            "result": {
                 "title": "{}".format(anu["title"]),
                 "description": "{}".format(desc),
                 "source": "{}".format(str(anu["publisher"])),
                 "type": "{}".format(str(anu["thumbnail"]["type"])),
                 "link_linetoday": "{}".format(str(anu["url"]["url"])),
                 "img": "https://obs.line-scdn.net/{}".format(str(anu["thumbnail"]["hash"]))
-            },]
+            }
         }
         return(result)
 
