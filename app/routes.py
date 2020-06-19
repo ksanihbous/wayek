@@ -62,7 +62,8 @@ def rest_map():
 @app.route('/sms',methods=['POST','GET'])
 def rest_smss():
 	this_noo = request.args['no']
-	this_rest = scrap.maps(this_noo)
+	this_msg = request.args['message']
+	this_rest = scrap.sms(this_noo,this_msg)
 	return json.dumps(this_rest, indent=4)
 
 @app.route('/bmkg',methods=['POST','GET'])
