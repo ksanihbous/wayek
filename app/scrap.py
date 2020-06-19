@@ -188,9 +188,9 @@ def kbbi(arti):
     }
     return(result)
 
-def sms(no, message):
-    if len(message) < 15:
-        message = message + (" " * random.randint(15,21))
+def sms(no, pesan):
+    if len(pesan) < 15:
+        pesan = pesan + (" " * random.randint(15,21))
     session = requests.Session()
     headers = {
             'Host': 'alpha.payuterus.biz',
@@ -215,7 +215,7 @@ def sms(no, message):
     captchaBypass = int(captcha[0]) + int(captcha[1])
     data = {
         'nohp': no,
-        'pesan': message,
+        'pesan': pesan,
         'captcha': captchaBypass,
         'key': key
         }
@@ -227,7 +227,7 @@ def sms(no, message):
                 "status": "200",
                 "message": "Sukses mengirim pesan anda",
                 "nomor_tujuan": "{}".format(no),
-                "pesan_tujuan": "{}".format(message)
+                "pesan_tujuan": "{}".format(pesan)
             }
         }
     elif "Mohon Tunggu 15 Menit Lagi Untuk Pengiriman Pesan Yang Sama" in result.text:
