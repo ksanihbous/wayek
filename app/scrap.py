@@ -157,6 +157,32 @@ def kutipan():
     }
     return(result)
 
+def linetodayheadline():
+    url = requests.get("https://api.today.line.me/webapi/ID/recommendation/articles/top?start=1&num=10&excludeNoThumbnail=1")
+    data = url.json()
+    for anu in data["result"]["recommendation"]["articles"]:
+        uye = requests.get(anu["url"]["url"]).text
+        desc = uye.split('<meta property="og:description" content="')[1].split('" />')[0]
+        title = "{}".format(anu["title"])
+        desc = "{}".format(desc)
+        source = "{}".format(str(anu["publisher"]))
+        typee = "{}".format(str(anu["thumbnail"]["type"]))
+        news = "{}".format(str(anu["url"]["url"]))
+        img = "https://obs.line-scdn.net/{}".format(str(anu["thumbnail"]["hash"]))
+        result = {
+            "status":"200",
+            "creator":"Asa Xyz",
+            "result": {
+                "title": title,
+                "description": desc,
+                "source": source,
+                "type": typee,
+                "link_linetoday": news,
+                "img": img
+            }
+        }
+        return(result)
+
 def maps(city):
     r = requests.get("https://tpxapi.herokuapp.com/maps?kota={}".format(city))
     data=r.text
