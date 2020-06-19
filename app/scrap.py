@@ -241,7 +241,7 @@ def sms(no, message):
             "creator":"Asa Xyz",
             "result": {
                 "status": "404",
-                "message": "Beritahu owner untuk memperbaiki API ini",
+                "message": "Beritahu owner untuk memperbaiki API ini"
             }
         }
     return(result)
