@@ -169,19 +169,19 @@ def linetodayheadline():
         typee = "{}".format(str(anu["thumbnail"]["type"]))
         news = "{}".format(str(anu["url"]["url"]))
         img = "https://obs.line-scdn.net/{}".format(str(anu["thumbnail"]["hash"]))
-        result = {
-            "status":"200",
-            "creator":"Asa Xyz",
-            "result": {
-                "title": title,
-                "description": desc,
-                "source": source,
-                "type": typee,
-                "link_linetoday": news,
-                "img": img
-            }
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "title": title,
+            "description": desc,
+            "source": source,
+            "type": typee,
+            "link_linetoday": news,
+            "img": img
         }
-        return(result)
+    }
+    return(result)
 
 def maps(city):
     r = requests.get("https://tpxapi.herokuapp.com/maps?kota={}".format(city))
