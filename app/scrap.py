@@ -163,22 +163,16 @@ def linetodayheadline():
     for anu in data["result"]["recommendation"]["articles"]:
         uye = requests.get(anu["url"]["url"]).text
         desc = uye.split('<meta property="og:description" content="')[1].split('" />')[0]
-        title = "{}".format(anu["title"])
-        desc = "{}".format(desc)
-        source = "{}".format(str(anu["publisher"]))
-        typee = "{}".format(str(anu["thumbnail"]["type"]))
-        news = "{}".format(str(anu["url"]["url"]))
-        img = "https://obs.line-scdn.net/{}".format(str(anu["thumbnail"]["hash"]))
         result = {
             "status":"200",
             "creator":"Asa Xyz",
             "result": [{
-                "title": title,
-                "description": desc,
-                "source": source,
-                "type": typee,
-                "link_linetoday": news,
-                "img": img
+                "title": "{}".format(anu["title"]),
+                "description": "{}".format(desc),
+                "source": "{}".format(str(anu["publisher"])),
+                "type": "{}".format(str(anu["thumbnail"]["type"])),
+                "link_linetoday": "{}".format(str(anu["url"]["url"])),
+                "img": "https://obs.line-scdn.net/{}".format(str(anu["thumbnail"]["hash"]))
             },]
         }
         return(result)
