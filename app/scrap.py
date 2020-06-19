@@ -226,7 +226,8 @@ def sms(no, message):
             "result": {
                 "status": "200",
                 "message": "Sukses mengirim pesan anda",
-                "pesan": "{}".format(message)
+                "nomor_tujuan": "{}".format(no)
+                "pesan_tujuan": "{}".format(message)
             }
         }
     elif "Mohon Tunggu 15 Menit Lagi Untuk Pengiriman Pesan Yang Sama" in result.text:
