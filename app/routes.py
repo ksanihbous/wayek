@@ -227,7 +227,7 @@ def bitly(link):
 
 def bitly2(link):
     try:
-        r = requests.get("https://api-ssl.bitly.com/v3/clicks?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&shortUrl={}".format(click))
+        r = requests.get("https://api-ssl.bitly.com/v3/clicks?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&shortUrl={}".format(link))
         data=r.text
         data=json.loads(data)
         url = data["data"]["clicks"][0]["short_url"]
