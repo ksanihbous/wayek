@@ -205,17 +205,25 @@ def bitly(link):
     data=json.loads(data)
     createds = data["data"]["info"][0]["created_at"]
     title = data["data"]["info"][0]["title"]
-    result = {
-        "status":"200",
-        "creator":"Asa Xyz",
-        "result": {
-            "url_title": title,
-            "url_created": createds,
-            "url_original": urlori,
-            "url_bitly": urlbitly
+    try:
+        result = {
+            "status":"200",
+            "creator":"Asa Xyz",
+            "result": {
+                "url_title": title,
+                "url_created": createds,
+                "url_original": urlori,
+                "url_bitly": urlbitly
+            }
         }
-    }
-    return(result)
+        return(result)
+    except:
+        result = {
+            "status":"404",
+            "creator":"Asa Xyz",
+            "message":"URL Not Found",
+        }
+        return(result)
 
 def kbbi(arti):
     r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(arti))
@@ -325,6 +333,7 @@ def instaprofile(user):
         result = {
             "status":"404",
             "creator":"Asa Xyz",
+            "message":"Username Not Found",
         }
         return(result)
 
@@ -360,5 +369,6 @@ def twitterprofile(user):
         result = {
             "status":"404",
             "creator":"Asa Xyz",
+            "message":"Username Not Found",
         }
         return(result)
