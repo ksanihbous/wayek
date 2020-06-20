@@ -59,6 +59,12 @@ def rest_map():
 	this_rest = scrap.maps(this_city)
 	return json.dumps(this_rest, indent=4)
 
+@app.route('/bitly',methods=['POST','GET'])
+def rest_bitlys():
+	this_link = request.args['link']
+	this_rest = scrap.bitly(this_link)
+	return json.dumps(this_rest, indent=4)
+
 @app.route('/sms',methods=['POST','GET'])
 def rest_smss():
 	this_noo = request.args['no']
