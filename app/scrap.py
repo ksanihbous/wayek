@@ -195,7 +195,7 @@ def maps(city):
     return(result)
 
 def bitly(link):
-    r = requests.get("https://api-ssl.bitly.com/v3/shorten?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&longUrl={}".format(city))
+    r = requests.get("https://api-ssl.bitly.com/v3/shorten?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&longUrl={}".format(link))
     data=r.text
     data=json.loads(data)
     urlbitly = data["data"]["url"]
