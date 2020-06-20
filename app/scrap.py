@@ -200,10 +200,17 @@ def bitly(link):
     data=json.loads(data)
     urlbitly = data["data"]["url"]
     urlori = data["data"]["long_url"]
+    r = requests.get("https://api-ssl.bitly.com/v3/info?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&shortUrl={}".format(urlbitly))
+    data=r.text
+    data=json.loads(data)
+    createds = data["data"]["info"][0]["created_at"]
+    title = data["data"]["info"][0]["title"]
     result = {
         "status":"200",
         "creator":"Asa Xyz",
         "result": {
+            "url_title": title,
+            "url_created": createds,
             "url_original": urlori,
             "url_bitly": urlbitly
         }
