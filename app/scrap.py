@@ -227,14 +227,7 @@ def bitly(link):
 
 def bitly2(link):
     try:
-        if "http://bit.ly/" in link:
-            result = {
-                "status":"403",
-                "creator":"Asa Xyz",
-                "message":"Forbidden URL Use http://bit.ly/",
-            }
-            return(result)
-        else:
+        if ".ly/" in link:
             r = requests.get("https://api-ssl.bitly.com/v3/clicks?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&shortUrl={}".format(link))
             data=r.text
             data=json.loads(data)
@@ -249,6 +242,13 @@ def bitly2(link):
                     "url_hash": has,
                     "url_click": clickk
                 }
+            }
+            return(result)
+        else:
+            result = {
+                "status":"403",
+                "creator":"Asa Xyz",
+                "message":"Forbidden URL Use http://bit.ly/",
             }
             return(result)
     except:
