@@ -194,6 +194,22 @@ def maps(city):
     }
     return(result)
 
+def bitly(link):
+    r = requests.get("https://api-ssl.bitly.com/v3/shorten?access_token=c52a3ad85f0eeafbb55e680d0fb926a5c4cab823&longUrl={}".format(city))
+    data=r.text
+    data=json.loads(data)
+    urlbitly = data["data"]["url"]
+    urlori = data["data"]["long_url"]
+    result = {
+        "status":"200",
+        "creator":"Asa Xyz",
+        "result": {
+            "url_original": urlori,
+            "url_bitly": urlbitly
+        }
+    }
+    return(result)
+
 def kbbi(arti):
     r = requests.get("https://tpxapi.herokuapp.com/kbbi?kata={}".format(arti))
     data=r.text
