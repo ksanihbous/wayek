@@ -65,8 +65,8 @@ def rest_bitlys():
 	this_rest = scrap.bitly(this_link)
 	return json.dumps(this_rest, indent=4)
 
-@app.route('/bitly/click',methods=['POST','GET'])
-def rest_bitlys():
+@app.route('/bitlyclick/',methods=['POST','GET'])
+def rest_bitlyss():
 	this_link = request.args['link']
 	this_rest = scrap.bitly2(this_link)
 	return json.dumps(this_rest, indent=4)
