@@ -300,19 +300,19 @@ def sms(no, pesan):
     return(result)
 
 def instaprofile(user):
-    r = requests.get("http://apitrojans.herokuapp.com/instagram/user?username={}".format(str(user)))
-    data=r.text
-    data=json.loads(data)
-    username = data["result"]["username"]
-    name = data["result"]["fullname"]
-    picture = data["result"]["profile_img"]
-    biography = data["result"]["bio"]
-    followers = data["result"]["followers"]
-    following = data["result"]["following"]
-    private = data["result"]["private"]
-    media = data["result"]["media"]
-    biography_link = data["result"]["external_url"]
     try:
+        r = requests.get("http://apitrojans.herokuapp.com/instagram/user?username={}".format(str(user)))
+        data=r.text
+        data=json.loads(data)
+        username = data["result"]["username"]
+        name = data["result"]["fullname"]
+        picture = data["result"]["profile_img"]
+        biography = data["result"]["bio"]
+        followers = data["result"]["followers"]
+        following = data["result"]["following"]
+        private = data["result"]["private"]
+        media = data["result"]["media"]
+        biography_link = data["result"]["external_url"]
         result = {
             "status":"200",
             "creator":"Asa Xyz",
@@ -338,18 +338,18 @@ def instaprofile(user):
         return(result)
 
 def twitterprofile(user):
-    r = requests.get("http://apitrojans.herokuapp.com/twitter?user={}".format(str(user)))
-    data=r.text
-    data=json.loads(data)
-    username = data["result"]["id"]
-    name = data["result"]["nama"]
-    picture = data["result"]["picture"]
-    biography = data["result"]["bio"]
-    followers = data["result"]["followers"]
-    following = data["result"]["following"]
-    tweet = data["result"]["tweet"]
-    like = data["result"]["like"]
     try:
+        r = requests.get("http://apitrojans.herokuapp.com/twitter?user={}".format(str(user)))
+        data=r.text
+        data=json.loads(data)
+        username = data["result"]["id"]
+        name = data["result"]["nama"]
+        picture = data["result"]["picture"]
+        biography = data["result"]["bio"]
+        followers = data["result"]["followers"]
+        following = data["result"]["following"]
+        tweet = data["result"]["tweet"]
+        like = data["result"]["like"]
         result = {
             "status":"200",
             "creator":"Asa Xyz",
