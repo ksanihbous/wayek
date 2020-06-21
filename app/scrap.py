@@ -315,7 +315,7 @@ def sms(no, pesan):
             "creator":"Asa Xyz",
             "result": {
                 "status": "200",
-                "message": "Sukses mengirim pesan anda",
+                "respon": "Sukses mengirim pesan anda",
                 "nomor_tujuan": "{}".format(no),
                 "pesan_tujuan": "{}".format(pesan)
             }
@@ -325,7 +325,7 @@ def sms(no, pesan):
             "creator":"Asa Xyz",
             "result": {
                 "status": "200",
-                "message": "Tolong menunggu selama 20 menit untuk mengirim pesan"
+                "respon": "Tolong menunggu selama 20 menit untuk mengirim pesan"
             }
         }
     else:
@@ -333,7 +333,7 @@ def sms(no, pesan):
             "creator":"Asa Xyz",
             "result": {
                 "status": "404",
-                "message": "Beritahu owner untuk memperbaiki API ini"
+                "respon": "Beritahu owner untuk memperbaiki API ini"
             }
         }
     return(result)
